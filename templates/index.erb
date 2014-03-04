@@ -13,16 +13,18 @@
 <ol class="post-list">
   <% posts.each do |post| %>
     <li>
-      <!-- Read http://www.ruby-doc.org/core-2.1.1/Time.html#method-i-strftime 
-           for information about how this strftime voodoo works -->
       <p><%= post.created_at.strftime('%A, %B %-d, %Y') %></p>
-      <!-- What does "escape" do here?  What happens if you remove it? -->
-      <!-- Try creating a post that contains HTML and see how that post looks
-           with and without the call to escape() -->
       <p><%= escape(post.body) %></p>
-      <div class="delete">
-        <input type="button" value="Delete">
-      </div>
+      <form action="/posts/<%= post.id %>/delete" method="post">
+        <div class="delete">
+          <input type="submit" value="Delete">
+        </div>
+      </form>  
     </li>
   <% end %>
 </ol>
+<!-- What does "escape" do here?  What happens if you remove it? -->
+      <!-- Try creating a post that contains HTML and see how that post looks
+           with and without the call to escape() -->
+                 <!-- Read http://www.ruby-doc.org/core-2.1.1/Time.html#method-i-strftime 
+           for information about how this strftime voodoo works -->

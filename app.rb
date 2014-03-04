@@ -18,3 +18,8 @@ end
 get '/todo' do
   erb :todo
 end
+
+post "/posts/:id/delete" do
+	Post.where(:id => params[:id]).delete
+	redirect to('/')
+end

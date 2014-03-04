@@ -1,8 +1,12 @@
-body {
-  background: url(http://www.ezhez.us/wp-content/uploads/2013/10/seamless-brick-texture-pngseamless-brick-wall-pattern----background-labs-xtith9tn.png);
+html {
+  cursor: url(cursor.png),auto;
+  background: url(/Wallll.png);
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: cover;
-  color: rgba(150,150,150,.75);
+}
+body {
+  color: rgba(150,150,250,.9);
   font-family: Helvetica, Arial, sans-serif;
 }
 #page {
