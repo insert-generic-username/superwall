@@ -42,4 +42,3 @@ end
 Dir[APP_ROOT.join('helpers', '*.rb')].each { |file| require file }
 
 require APP_ROOT.join('config', 'database')
-require APP_ROOT.join('config', 'boot')

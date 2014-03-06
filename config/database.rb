@@ -24,7 +24,7 @@ end
 
 default_db_name = "#{APP_NAME}_#{Sinatra::Application.environment}.sqlite3"
 
-DB_URL = ENV['DATABASE_URL'] || "sqlite://#{APP_ROOT.join('db', default_db_name)}"
+ENV['DATABASE_URL'] ||= "sqlite://#{APP_ROOT.join('db', default_db_name)}"
 
 # Note:
 #   Sinatra::Application.environment is set to the value of ENV['RACK_ENV']
@@ -38,4 +38,4 @@ options = case Sinatra::Application.environment
             {}
           end
 
-DB = Sequel.connect(DB_URL, options)
+DB = Sequel.connect(ENV['DATABASE_URL'], options)
