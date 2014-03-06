@@ -19,7 +19,22 @@ get '/todo' do
   erb :todo
 end
 
+post '/posts/:id/upvote' do
+  post = Post.where(:id => params[:id]).first
+  post.votes = post.votes + 1
+  post.save
+  redirect to('/')
+end
+
+post '/posts/:id/downvote' do
+  post = Post.where(:id => params[:id]).first
+  post.votes = post.votes - 1
+  post.save
+  redirect to('/')
+end
+
 post "/posts/:id/delete" do
-	Post.where(:id => params[:id]).delete
-	redirect to('/')
+  post = Post.where(:id => params[:id])
+  post.delete
+  redirect to('/')
 end
