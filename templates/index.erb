@@ -3,10 +3,10 @@
 <div id="post-form">
   <form action="/posts" method="post">
     <div>
-      <textarea name="body"></textarea>
+      <textarea class="icarus" name="body"></textarea>
     </div>
     <div>
-      <input type="submit" value="Post">
+      <input class="button" type="submit" value="Post">
     </div>
   </form>
 </div>
@@ -16,20 +16,19 @@
       <p><%= post.created_at.strftime('%A, %B %-d, %Y') %></p>
       <p>
         <form action="/posts/<%= post.id%>/upvote" method="post">
-          <p><strong>Upwalls</strong>:<%= post.votes %></p>
-          <input type="submit" value="Upwall!">
+          <p><strong>Walls</strong>:<%= post.votes %></p>
+          <input class="button" type="submit" value="Upwall!">
         </form>
       </p>  
       <p>
         <form action="/posts/<%= post.id%>/downvote" method="post">
-          <p><strong>Downwalls</strong>:<%= post.votes %></p>
-          <input type="submit" value="Downwall!">
+          <input class="button" type="submit" value="Downwall!">
         </form>
       </p>  
       <p><%= escape(post.body) %></p>
       <form action="/posts/<%= post.id %>/delete" method="post">
         <div class="delete">
-          <input type="submit" value="Delete">
+          <input class="button" type="submit" value="Delete">
         </div>
       </form>  
     </li>
