@@ -17,8 +17,13 @@ end
 
 
 post '/posts' do
+  if Post.empty?
+    puts "DON'T GIVE ME AN EMPTY POST, SCUMBAG!!!"
+    redirect to('/')
+  else
   Post.create(:body => params[:body])
   redirect to('/')
+end
 end
 
 get '/todo' do

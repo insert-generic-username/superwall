@@ -6,7 +6,7 @@
       <textarea class="icarus" name="body"></textarea>
     </div>
     <div>
-      <input class="button" type="submit" value="Post">
+      <input class="submit" type="submit" value="Post">
     </div>
   </form>
 </div>
@@ -14,9 +14,14 @@
   <% posts.each do |post| %>
     <li>
       <p><%= post.created_at.strftime('%A, %B %-d, %Y') %></p>
+      <p><%= escape(post.body) %></p>
       <p>
+        <form action="/posts/<%= post.id %>/delete" method="post">
+          <input class="button" type="submit" value="Delete">
+        </form>
+      </p>
+      <p>  
         <form action="/posts/<%= post.id%>/upvote" method="post">
-          <p><strong>Walls</strong>:<%= post.votes %></p>
           <input class="button" type="submit" value="Upwall!">
         </form>
       </p>  
@@ -24,13 +29,8 @@
         <form action="/posts/<%= post.id%>/downvote" method="post">
           <input class="button" type="submit" value="Downwall!">
         </form>
-      </p>  
-      <p><%= escape(post.body) %></p>
-      <form action="/posts/<%= post.id %>/delete" method="post">
-        <div class="delete">
-          <input class="button" type="submit" value="Delete">
-        </div>
-      </form>  
+      </p>
+      <p><strong>Walls</strong>:<%= post.votes %></p>
     </li>
   <% end %>
 </ol>

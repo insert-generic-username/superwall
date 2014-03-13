@@ -1,8 +1,6 @@
 html {
   cursor: url(cursor.png),auto;
-  background: url(/Wallll.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url(/Bricksture.png);
   background-position: cover;
 }
 body {
@@ -14,7 +12,14 @@ textarea.icarus{
   background: url(/Text.jpg);
 }
 
+input.submit {
+  color: rgba(150,150,250,.9);
+  border-radius: 5px;
+  background: url(/Button.jpg);
+}
+
 input.button {
+  float: left;
   color: rgba(150,150,250,.9);
   border-radius: 5px;
   background: url(/Button.jpg);
